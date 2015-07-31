@@ -7,7 +7,7 @@ var LinkSchema = new mongoose.Schema({
  title: String,
  code: String,
  base_url: String,
- url: String
+ url: {type: String, index:{unique: true}} 
 });
 
 var createSha = function(url) {

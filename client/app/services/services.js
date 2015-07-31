@@ -2,6 +2,25 @@ angular.module('shortly.services', [])
 
 .factory('Links', function ($http) {
   // Your code here
+  var links = {};
+  links.getLinks = function() {
+    return $http.get('/api/links')/*.success(function(data, status, headers, config) {
+      //return data;
+    }).error(function(data, status, headers, config) {
+      console.log("ERRR in Links Factory")
+    });*/
+  };
+
+  links.addLink = function(link) {
+    return $http.post('/api/links', link)/*.success(function(data, status, headers, config) {
+
+    }).error(function(data, status, headers, config) {
+
+    });
+  */
+  };
+
+  return links;
 })
 .factory('Auth', function ($http, $location, $window) {
   // Don't touch this Auth service!!!

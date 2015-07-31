@@ -146,3 +146,8 @@ input[type=url]:focus {
   clear: both;
 }
 
+input.ng-dirty.ng-invalid {
+  border: red 3px solid;
+  background-color: #FDD;
+}
+

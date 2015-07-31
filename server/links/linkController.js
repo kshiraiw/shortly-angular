@@ -5,6 +5,7 @@ var Link    = require('./linkModel.js'),
 
 module.exports = {
   findUrl: function (req, res, next, code) {
+    console.log("FINDING URL")
     var findLink = Q.nbind(Link.findOne, Link);
     findLink({code: code})
       .then(function (link) {
@@ -33,9 +34,9 @@ module.exports = {
   },
 
   newLink: function (req, res, next) {
-    var url = req.body.url;
-    console.log(req.body);
+    var url = req.body.url;;
     if (!util.isValidUrl(url)) {
+      console.log(url, "FROM NEW LINK IN CONTROLLER")
       return next(new Error('Not a valid url'));
     }
 
@@ -72,12 +73,14 @@ module.exports = {
   },
 
   navToLink: function (req, res, next) {
+    console.log("IN NAV TO LINK")
     var link = req.navLink;
     link.visits++;
     link.save(function (err, savedLink) {
       if (err) {
         next(err);
       } else {
+        console.log("REDIRECTING TOO: " + savedLink.url)
         res.redirect(savedLink.url);
       }
     });

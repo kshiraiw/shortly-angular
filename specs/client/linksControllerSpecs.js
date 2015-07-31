@@ -25,7 +25,9 @@ describe('LinksController', function () {
   }));
 
   it('should have a data property on the $scope', function() {
+    console.log("BEFORE CREATECONTROLLER");
     createController();
+    
     expect($scope.data).to.be.an('object');
   });
 

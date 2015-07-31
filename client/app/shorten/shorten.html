@@ -1,6 +1,33 @@
 <div id='container'>
 <!-- Your code here -->
-
+<div class="navigation">
+    <ul>
+      <li><a href="#/links">Links</a></li>
+      <li><a href="#/shorten">Shorten</a></li>
+      <li><a ng-click="Auth.signout()">Sign out</a></li>
+    </ul>
+  </div>
 </div>
 
+<div class="creator">
+  <form novalidate name="shorten" ng-submit="addLink(newLink)">
+    <input type="url" ng-model="newLink.url" name="url" required>
+    <p class="message" ng-show="shorten.url.$invalid && !shorten.url.$pristine">Please Enter a Valid URL</p>
+  </form>
+</div>
 
+<div class="link" ng-show="link.url">
+  <img src='../../assets/redirect_icon.png'/>
+  <div class="info">
+    <div class="visits">
+      <span class="count"> {{link.visits}}</span> Visits
+    </div>
+    <div class="title">{{link.title}}
+    </div>
+    <div class="original"> {{link.url}}</div>
+    <a ng-href="{{link.base_url}}/{{link.code}}">{{link.base_url}}/{{link.code}}</a>
+  </div>
+</div>
+<!-- <div ng-show="creator.url.$invalid && !creator.url.$pristine"class="error">Please Enter a Valid URL</div> -->
+<!-- 
+{{ link | json }} -->
