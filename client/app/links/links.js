@@ -13,6 +13,9 @@ angular.module('shortly.links', [])
   }
   $scope.getLinks();
 })
-.directive('ac_linkView', function() {
-  
+.directive('aclinkview', function() {
+  return {
+    restrict: 'A',
+    templateUrl: 'app/links/linkView.html'
+  }
 }); 

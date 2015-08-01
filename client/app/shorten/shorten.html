@@ -16,18 +16,7 @@
   </form>
 </div>
 
-<div class="link" ng-show="link.url">
-  <img src='../../assets/redirect_icon.png'/>
-  <div class="info">
-    <div class="visits">
-      <span class="count"> {{link.visits}}</span> Visits
-    </div>
-    <div class="title">{{link.title}}
-    </div>
-    <div class="original"> {{link.url}}</div>
-    <a ng-href="{{link.base_url}}/{{link.code}}">{{link.base_url}}/{{link.code}}</a>
-  </div>
-</div>
+<div aclinkview ng-show="link.url"></div>
 <!-- <div ng-show="creator.url.$invalid && !creator.url.$pristine"class="error">Please Enter a Valid URL</div> -->
 <!-- 
 {{ link | json }} -->

@@ -8,16 +8,8 @@
     </ul>
   </div>
   <input ng-model="search" type="text" placeholder="filter">
-  <div class="link" ng-show="link.url" ng-repeat="link in data.links | orderBy: '-visits' | filter:{title:search}">
-    <img src='../../assets/redirect_icon.png'/>
-    <div class="info">
-      <div class="visits">
-        <span class="count"> {{link.visits}}</span> Visits
-      </div>
-      <div class="title">{{link.title}}
-      </div>
-      <div class="original"> {{link.url}}</div>
-      <a ng-href="{{link.base_url}}/api/links/{{link.code}}">{{link.base_url}}/{{link.code}}</a>
-    </div>
+  <div aclinkview ng-repeat="link in data.links | orderBy: '-visits' | filter:{title:search}" info="link">
+    {{link}}
+
   </div>
 </div>
